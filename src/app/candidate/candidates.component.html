@@ -13,17 +13,6 @@
                         text="2019"></Label>
                 </StackLayout>
             </StackLayout>
-            <StackLayout orientation="horizontal">
-                <TextField width="90%" hint="Recherche forum" id="searchForum" (blur)="$event.object.dismissSoftInput()" (returnPress)="loseFocus($event)" [(ngModel)]="filter" (ngModelChange)='filter=$event' (textChange)="applySearch($event)"></TextField>
-                <ng-container *ngIf="!isShowed(); else elseBlockChevron">
-                    <Image paddingTop="10%" height="90%" marginRight="3%" src="~/assets/image/chevron_down.png" (tap)="show(true)">
-                    </Image>
-                </ng-container>
-                <ng-template #elseBlockChevron>
-                    <Image paddingTop="10%" height="90%" marginTop="3%" marginRight="3%" src="~/assets/image/chevron_up.png" (tap)="show(false)">
-                    </Image>
-                </ng-template>
-            </StackLayout>
         </StackLayout>
     </ActionBar.titleView>
 </ActionBar>
