@@ -39,10 +39,11 @@ export class CandidateService {
         return this.candidates.filter((candidate) => candidate.id === id)[0];
     }
 
-    // getCandidateByName(name: string): Array<Candidate> {
-    getCandidateByName(name: string) {
+    getCandidateByName(name: string): Array<Candidate> {
+    // getCandidateByName(name: string) {
         console.log(name);
+        console.log(this.candidates.filter((candidate) => candidate.name.toLowerCase()));
         // console.log(this.candidates.filter((candidate) => candidate.name.toLowerCase() === name)[0]);
-        // return this.candidates.filter((candidate) => candidate.name.toLowerCase() === name)[0];
+        return this.candidates.filter((candidate) => candidate.name.toLowerCase());
     }
 }

@@ -15,7 +15,7 @@ import { CandidateService } from "./candidate.service";
 export class CandidatesComponent implements OnInit {
   candidates: Array<Candidate>;
 
-  filter: string = "" ; 
+//  filter: string = "" ; 
 
   constructor(private candidateService: CandidateService) { }
 
@@ -46,16 +46,19 @@ export class CandidatesComponent implements OnInit {
   }
 
   applySearch(args){
-    this.filter = (<TextField>args.object).text;
-    this.index.forEach(index => {
-        index.forumList = [];
-    })
-    this.forum.forEach(forum => {
-        if(forum.name.toLowerCase().includes(this.filter.toLowerCase()) && this.filter != ""){
-            let i = this.index.findIndex(index => forum.name.substr(0, 1).toUpperCase() == index.name);
-            this.index[i].forumList.push(forum);
-            this.index[i].forumList.sort((a, b) => a.name < b.name ? -1 : 1)
-        }
-    })
-}
+    let filter = (<TextField>args.object).text;
+
+    this.candidates = this.candidateService.getCandidateByName(filter);
+    console.log(this.candidates);
+    // this.index.forEach(index => {
+    //     index.forumList = [];
+    // })
+    // this.forum.forEach(forum => {
+    //     if(forum.name.toLowerCase().includes(this.filter.toLowerCase()) && this.filter != ""){
+    //         let i = this.index.findIndex(index => forum.name.substr(0, 1).toUpperCase() == index.name);
+    //         this.index[i].forumList.push(forum);
+    //         this.index[i].forumList.sort((a, b) => a.name < b.name ? -1 : 1)
+    //     }
+    // })
+  }
 }
