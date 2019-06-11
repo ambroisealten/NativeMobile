@@ -1,0 +1,17 @@
+/* Add mobile styles for the component here.  */
+.list-group{
+    border-bottom-width: 1;
+    border-color: #C0C0C8;
+}
+
+Label {
+    margin-left: 2%;
+}
+
+.title {
+    font-size: "30";
+}
+
+ActionBar {
+    height: 0;
+}
