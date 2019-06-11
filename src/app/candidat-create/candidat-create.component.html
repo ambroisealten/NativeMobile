@@ -1,0 +1,11 @@
+<ActionBar class="action-bar">
+    <NavigationButton text="Go Back" ios.systemIcon="1" ios.position="left" android.systemIcon="ic_menu_back" (tap)="onNavBtnTap()">
+    </NavigationButton>
+<Label class="action-bar-title" text="Création candidat"></Label>
+</ActionBar>
+<GridLayout>
+<StackLayout>
+    <Label text="Form de création d'un candidat" class="btn btn-primary"></Label>
+    <Button text="Commencer l'entretien" (tap)="onValidate()"></Button>
+</StackLayout>
+</GridLayout>

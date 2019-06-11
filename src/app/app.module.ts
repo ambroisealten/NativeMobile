@@ -7,6 +7,9 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/listview-directives";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
 import { ForumComponent } from "./forum/forum.component";
+import { CandidatCreateComponent } from "./candidat-create/candidat-create.component";
+import { CandidatFormComponent } from './candidat-form/candidat-form.component';
+import { CandidatComponent } from './candidat/candidat.component';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { ForumComponent } from "./forum/forum.component";
     ],
     declarations: [
         AppComponent,
-		ForumComponent
+        ForumComponent,
+        CandidatCreateComponent,
+        CandidatFormComponent,
+        CandidatComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

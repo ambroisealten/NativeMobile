@@ -1,5 +1,5 @@
 <ActionBar class="action-bar">
-    <Label class="action-bar-title" text="Liste Forum"></Label>
+    <Label class="action-bar-title" text="Liste Candidats"></Label>
     <ActionItem tap="onShare"
         ios.systemIcon="4" ios.position="right"
         android.systemIcon="ic_menu_add" android.position="actionBar" (tap)="onTap()"></ActionItem>
@@ -7,6 +7,10 @@
 
 <GridLayout rows="*, auto" class="page">
     <StackLayout row="0">
-        <Button text="Liste candidat" (tap)="onRedirectCandidate()"></Button>
+        <Label text="Liste candidats"></Label>
     </StackLayout>
+    
+    <AbsoluteLayout row="1" orientation="vertical" horizontalAlignment="right">
+        <Button class="fabLike" text="+" (tap)="onCreateTap()"></Button>
+    </AbsoluteLayout>
 </GridLayout>

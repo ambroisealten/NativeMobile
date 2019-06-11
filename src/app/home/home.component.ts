@@ -6,7 +6,8 @@ import { ForumComponent } from "../forum/forum.component";
 @Component({
     selector: "Home",
     moduleId: module.id,
-    templateUrl: "./home.component.html"
+    templateUrl: "./home.component.html",
+    styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
 
@@ -29,5 +30,9 @@ export class HomeComponent implements OnInit {
             .then((result: string) => {
                 console.log(result);
             });
+    }
+
+    onRedirectCandidate(){
+        this.routerExtensions.navigate(['candidat']);
     }
 }

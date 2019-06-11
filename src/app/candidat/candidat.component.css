@@ -1,0 +1,8 @@
+/* Add mobile styles for the component here.  */
+.fabLike{
+    width: 50;
+    height: 50;
+    border-radius: 100;
+    color: #043962;
+    background-color: #E6E6E9;
+}
