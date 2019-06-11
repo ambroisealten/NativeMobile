@@ -6,6 +6,7 @@ import { AppComponent } from "./app.component";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/listview-directives";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
+import { HomeForumComponent } from "./forum/components/HomeForumComponent/home-forum.component";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 		NativeScriptUIListViewModule
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        HomeForumComponent,
     ],
     schemas: [
         NO_ERRORS_SCHEMA
