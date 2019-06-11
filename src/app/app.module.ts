@@ -6,6 +6,7 @@ import { AppComponent } from "./app.component";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/listview-directives";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
+import { HomeForumComponent } from "./forum/components/HomeForumComponent/home-forum.component";
 
 import { CandidatesComponent } from "./candidate/candidates.component";
 import { CandidateDetailComponent } from "./candidate/candidate-detail.component";
@@ -26,6 +27,7 @@ import { CandidateService } from "./candidate/candidate.service";
     ],
     declarations: [
         AppComponent,
+        HomeForumComponent,
         CandidatesComponent,
         CandidateDetailComponent
     ],
