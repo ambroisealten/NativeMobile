@@ -1,0 +1,10 @@
+/* Add mobile styles for the component here.  */
+
+.fragment{
+    border-bottom: 2 solid #8a2be2;
+}
+
+.page{
+    align-items: center;
+    text-align: center;
+}

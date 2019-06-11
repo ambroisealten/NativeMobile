@@ -9,6 +9,7 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 import { ForumComponent } from "./forum/forum.component";
 import { CandidatCreateComponent } from "./candidat-create/candidat-create.component";
 import { CandidatComponent } from './candidat/candidat.component';
+import { CandidatFormComponent } from './candidat-form/candidat-form.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { CandidatComponent } from './candidat/candidat.component';
         AppComponent,
         ForumComponent,
         CandidatCreateComponent,
-        CandidatComponent
+        CandidatComponent,
+        CandidatFormComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

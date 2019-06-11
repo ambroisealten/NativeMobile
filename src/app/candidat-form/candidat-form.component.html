@@ -1,0 +1,23 @@
+<ActionBar class="action-bar">
+    <NavigationButton text="Go Back" ios.systemIcon="1" ios.position="left" android.systemIcon="ic_menu_back"
+        (tap)="onNavTap()">
+    </NavigationButton>
+    <Label class="action-bar-title" text="Création candidat"></Label>
+</ActionBar>
+<GridLayout columns="150,auto,*" rows="25, auto, *" class="page">
+    <StackLayout row="0" col="1" class="fragment">
+        <Label text="barre de recherche ici"></Label>
+    </StackLayout>
+    <WrapLayout row="1" orientation="horizontal" class="input-field">
+        <Label horizontalAlignment="left" text="Dans un rayon de : "></Label>
+        <TextField horizontalAlignment="center" hint="Entrez le rayon" keyboardType="number" width="50" height="50"></TextField>
+        <ListPicker horizontalAlignment="right" [items]="units" selectedIndex="0" width="50" height="50" (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker>
+    </WrapLayout>
+    <StackLayout row="2" col="0">
+        <Label text="Mobile International ?" height="50"></Label>    </StackLayout>
+    <WrapLayout row="2" col="1" class="fragment">
+        <Label text="Oui" height="25"></Label>
+        <Switch class="international" width="50" height="50" checked="{{isOkForInternational}}"></Switch>
+        <Label text="Non" height="25"></Label>
+    </WrapLayout>
+</GridLayout>
