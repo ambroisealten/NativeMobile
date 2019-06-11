@@ -13,13 +13,16 @@
                         text="2019"></Label>
                 </StackLayout>
             </StackLayout>
+            <StackLayout orientation="horizontal">
+                <TextField width="90%" hint="Recherche candidat" id="searchCandidate" (blur)="$event.object.dismissSoftInput()" (returnPress)="loseFocus($event)" [(ngModel)]="filter" (ngModelChange)='filter=$event' (textChange)="applySearch($event)"></TextField>
+            </StackLayout>
         </StackLayout>
     </ActionBar.titleView>
 </ActionBar>
 <StackLayout orientation="vertical">
     <!-- <SearchBar hint="Rechercher un candidat" [text]="searchPhrase" (textChange)="onTextChanged($event)" (submit)="onSubmit($event)" 
     color="white" textFieldBackgroundColor="darkgray" textFieldHintColor="lightgray"></SearchBar> -->
-    <Label marginTop="60px" marginBottom="20px" color="#0085c7" text="CANDIDATS" class="title"></Label>
+    <Label marginTop="60px" marginBottom="20px" marginLeft="20px" color="#0085c7" text="CANDIDATS" class="title"></Label>
     <StackLayout marginBottom="40px" height="4px" backgroundColor="#0085c7"></StackLayout>
     <ScrollView backgroundColor="white">
         <StackLayout orientation="vertical">
