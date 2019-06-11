@@ -1,5 +1,8 @@
 <ActionBar class="action-bar">
-    <Label class="action-bar-title" text="Home"></Label>
+    <Label class="action-bar-title" text="Liste Forum"></Label>
+    <ActionItem tap="onShare"
+        ios.systemIcon="4" ios.position="right"
+        android.systemIcon="ic_menu_add" android.position="actionBar" (tap)="onTap()"></ActionItem>
 </ActionBar>
 
 <GridLayout class="page">

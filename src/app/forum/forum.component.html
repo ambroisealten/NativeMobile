@@ -3,9 +3,9 @@
         <FlexboxLayout flexDirection="column" class="page">
             <Label text="Creation d'un nouveau forum" class="titre"></Label>
 
-            <StackLayout class="input-field">
+            <StackLayout class="input-field" >
                 <Label text="Nom du forum :" class="forumName"></Label>
-                <TextField [(ngModel)]="forumName" hint="Nom du forum "class="input input-rounded m-t-5"></TextField>
+                <TextField [(ngModel)]="forumName" hint="Nom du forum" class="input input-rounded m-t-5"></TextField>
             </StackLayout>
             <StackLayout class="input-field">
                 <Label text="Lieu du forum :" class="placeForum"></Label>
@@ -13,7 +13,7 @@
             </StackLayout>
             <ng-container class="input-field">
                 <Label text="Date du forum :" class="dateForum"></Label>
-                <DatePicker [(ngModel)]="forumDate" day="7" month="6" year="2019" verticalAlignment="center" horizontalAlignment="center"></DatePicker>>
+                <DatePicker class="picker" [(ngModel)]="forumDate" day="7" month="6" year="2019" verticalAlignment="center" horizontalAlignment="center"></DatePicker>>
             </ng-container>
 
             <Button class="btn btn-outline btn-rounded-lg" text="Valider" (onTap)="onClose()"> </Button>
