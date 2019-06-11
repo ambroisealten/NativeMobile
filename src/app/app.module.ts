@@ -8,7 +8,6 @@ import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/l
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
 import { ForumComponent } from "./forum/forum.component";
 import { CandidatCreateComponent } from "./candidat-create/candidat-create.component";
-import { CandidatFormComponent } from './candidat-form/candidat-form.component';
 import { CandidatComponent } from './candidat/candidat.component';
 
 
@@ -27,7 +26,6 @@ import { CandidatComponent } from './candidat/candidat.component';
         AppComponent,
         ForumComponent,
         CandidatCreateComponent,
-        CandidatFormComponent,
         CandidatComponent
     ],
     schemas: [
