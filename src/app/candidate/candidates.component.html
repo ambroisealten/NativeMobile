@@ -1,4 +1,20 @@
-<ActionBar title="CANDIDATS" class="action-bar">
+<ActionBar title="" color="blue" backgroundColor="#f2f2f2">
+    <ActionBar.titleView>
+        <StackLayout orientation="vertical">
+            <Image width="5%" marginRight="3%" marginTop="15px" horizontalAlignment="right"
+                src="~/assets/image/plus_icon.png">
+            </Image>
+            <StackLayout orientation="horizontal">
+                <Image marginLeft="3%" width="12%" height="100%" src="~/assets/image/logo-alten-black.png">
+                </Image>
+                <StackLayout paddingTop="5%" orientation="vertical">
+                    <Label marginLeft="10%" fontWeight="bold" fontSize="17vh" color="black" text="Blabla"></Label>
+                    <Label marginLeft="10%" fontWeight="bold" paddingTop="5%" fontSize="17vh" color="black"
+                        text="2019"></Label>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ActionBar.titleView>
 </ActionBar>
 <StackLayout orientation="vertical">
     <!-- <SearchBar hint="Rechercher un candidat" [text]="searchPhrase" (textChange)="onTextChanged($event)" (submit)="onSubmit($event)" 
