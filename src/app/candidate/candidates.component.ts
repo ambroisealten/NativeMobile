@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TextField } from "tns-core-modules/ui/text-field"
 
 import { SearchBar } from "tns-core-modules/ui/search-bar";
 
@@ -13,6 +14,8 @@ import { CandidateService } from "./candidate.service";
 })
 export class CandidatesComponent implements OnInit {
   candidates: Array<Candidate>;
+
+  filter: string = "" ; 
 
   constructor(private candidateService: CandidateService) { }
 
@@ -41,4 +44,18 @@ export class CandidatesComponent implements OnInit {
 
     // this.candidates = this.candidateService.getCandidateByName(searchValue);
   }
+
+  applySearch(args){
+    this.filter = (<TextField>args.object).text;
+    this.index.forEach(index => {
+        index.forumList = [];
+    })
+    this.forum.forEach(forum => {
+        if(forum.name.toLowerCase().includes(this.filter.toLowerCase()) && this.filter != ""){
+            let i = this.index.findIndex(index => forum.name.substr(0, 1).toUpperCase() == index.name);
+            this.index[i].forumList.push(forum);
+            this.index[i].forumList.sort((a, b) => a.name < b.name ? -1 : 1)
+        }
+    })
+}
 }
