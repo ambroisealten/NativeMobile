@@ -1,0 +1,54 @@
+<ActionBar title="Informations">
+    <NavigationButton text="Go Back" ios.systemIcon="1" ios.position="left" android.systemIcon="ic_menu_back"
+        (tap)="onNavTap()">
+    </NavigationButton>
+</ActionBar>
+<AbsoluteLayout>
+    <SearchBar hint="Search hint" [text]="searchPhrase" (textChange)="onTextChanged($event)" (submit)="onSubmit($event)"
+        left="20" color="black" textFieldBackgroundColor="white" textFieldHintColor="blue" class="searchBar">
+    </SearchBar>
+    <Label left="30" top="120" text="Dans un rayon de : "></Label>
+    <TextField left="150" top="100" hint="Rayon" keyboardType="number" width="75" height="50" textAlignment="center">
+    </TextField>
+    <ListPicker left="250" top="50" [items]="units" selectedIndex="0" height="150"
+        (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker>
+    <ScrollView left="20" top="200" id="allMobilities" height="100" width="300">
+        <StackLayout>
+            <Label text="mobilité random ici : 25 kms"></Label>
+            <Label text="mobilité random ici : 25 kms"></Label>
+            <Label text="mobilité random ici : 25 kms"></Label>
+            <Label text="mobilité random ici : 25 kms"></Label>
+            <Label text="mobilité random ici : 25 kms"></Label>
+            <Label text="mobilité random ici : 25 kms"></Label>
+            <Label text="mobilité random ici : 25 kms"></Label>
+            <Label text="mobilité random ici : 25 kms"></Label>
+            <Label text="mobilité random ici : 25 kms"></Label>
+            <Label text="mobilité random ici : 25 kms"></Label>
+            <Label text="mobilité random ici : 25 kms"></Label>
+            <Label text="mobilité random ici : 25 kms"></Label>
+            <Label text="mobilité random ici : 25 kms"></Label>
+        </StackLayout>
+    </ScrollView>
+    <Button left="20" top="300" text="Mobilité France" className="mobiBtn" width="150"></Button>
+    <Button left="200" top="300" text="Mobilité France sauf IDF" className="mobiBtn" width="150"></Button>
+    <Label left="110" top="350" text="Mobilité internationale ?"></Label>
+    <Label left="120" top="385" text="Non"></Label>
+    <Switch left="150" top="370" id="international" width="50" height="50" checked="{{isOkForInternational}}"></Switch>
+    <Label left="203" top="385" text="Oui"></Label>
+</AbsoluteLayout>
+<GridLayout height="60" verticalAlignment="bottom">
+    <GridLayout columns="*, *, *, *, *" height="60" backgroundColor="#E6E6E9">
+        <GridLayout #tabHighlight col="0" backgroundColor="#043962"></GridLayout>
+        <GridLayout rows="40, 20" col="0" (tap)="selectTab(0)">
+            <Image row="0" #image1 src="~/app/assets/mobility.png" height="23" width="23"></Image>
+            <Label row="1" className="fontTest" text="Test" horizontalAlignment="center"></Label>
+        </GridLayout>
+        <GridLayout col="1" (tap)="selectTab(1)">
+            <Image #image2 src="~/app/assets/competences.png" height="25" width="25"></Image>
+        </GridLayout>
+        <GridLayout col="2" (tap)="selectTab(2)">
+            <Image #image3 src="~/app/assets/complement.png" height="25" width="25"></Image>
+        </GridLayout>
+    </GridLayout>
+
+</GridLayout>

@@ -1,0 +1,35 @@
+/* Add mobile styles for the component here.  */
+
+.fragment{
+    border-bottom: 2 solid #8a2be2;
+}
+
+.page{
+    align-items: center;
+    text-align: center;
+}
+
+.searchBar{
+    border-bottom: 1 solid black;
+}
+
+Switch#international[checked=false]{
+    color:red;
+    background-color: rgba(255, 0, 0, 0.5);
+    transform: scale(1.25, 1.25);
+    transform: translate(-5,0); 
+}
+
+Switch#international[checked=true]{
+    color: green;
+    background-color: rgba(0, 255, 0, 0.5);
+}
+
+.mobiBtn{
+    font-size: 10;
+}
+
+.fontTest{
+    color: white;
+    font-size: 12;
+}

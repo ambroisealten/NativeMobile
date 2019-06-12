@@ -6,6 +6,10 @@ import { AppComponent } from "./app.component";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/listview-directives";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
+import { HomeComponent } from "./home/home.component";
+import { CandidatCreateComponent } from './candidat/candidat-create/candidat-create.component';
+import { ForumComponent } from "./forum/forum.component";
+import { CandidatFormComponent } from './candidat/candidat-form/candidat-form.component';
 
 
 @NgModule({
@@ -20,10 +24,17 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 		NativeScriptUIListViewModule
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        HomeComponent,
+        CandidatCreateComponent,
+        ForumComponent,
+        CandidatFormComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
+    ],
+    entryComponents:[
+        ForumComponent
     ]
 })
 export class AppModule { }
