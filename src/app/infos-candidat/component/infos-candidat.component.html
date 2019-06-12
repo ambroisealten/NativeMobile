@@ -11,25 +11,25 @@
                 </StackLayout>
             </StackLayout>
             <StackLayout orientation="horizontal">
-                <label text="Nouveau candidat" color="#0085c7"></label>
+                <label marginLeft="30%" text="Nouveau candidat" color="#0085c7"></label>
             </StackLayout>
         </StackLayout>
     </ActionBar.titleView>
 </ActionBar>
 <StackLayout orientation="vertical">
-    <!-- <StackLayout orientation="vertical" class="round-border">
-        <button text="Prénom"></button>
-        <button text="Nom"></button>
-        <button text="Téléphone"></button>
-        <button text="Adresse email"></button>
-    </StackLayout> -->
-    <!-- <StackLayout marginBottom="40px" height="4px" backgroundColor="#0085c7"></StackLayout> -->
-    <!-- <StackLayout orientation="vertical" class="round-border">
+    <StackLayout orientation="vertical" margin="5%" class="round-border">
+        <TextField hint="Prénom"></TextField>
+        <TextField hint="Nom"></TextField>
+        <TextField hint="Téléphone"></TextField>
+        <TextField hint="Adresse email"></TextField>
+    </StackLayout>
+    <StackLayout marginBottom="40px" height="4px" backgroundColor="#0085c7"></StackLayout>
+    <StackLayout orientation="vertical" margin="2%" class="round-border">
         <label text="Photo du CV :"></label>
-        <StackLayout orientation="horizontal">
-            <button text="Photo" backgroundColor="black"></button>
-            <button text="CV" backgroundColor="black"></button>
-        </StackLayout>
-    </StackLayout> -->
-    <!-- <button text="Commencer l'entretien"></button> -->
+        <GridLayout columns="50*, 50*">
+            <button text="Photo" col="0" backgroundColor="lightgray" marginLeft="10%" marginRight="10%" marginTop="20%" marginBottom="20%"></button>
+            <button text="CV" col="1" backgroundColor="lightgray" marginLeft="10%" marginRight="10%" marginTop="20%" marginBottom="20%"></button>
+        </GridLayout>
+    </StackLayout>
+    <button text="Commencer l'entretien" marginLeft="10%" marginRight="10%"></button>
 </StackLayout>
