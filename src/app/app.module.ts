@@ -7,6 +7,8 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/listview-directives";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
 import { HomeForumComponent } from "./forum/components/HomeForumComponent/home-forum.component";
+import { FormationComponent } from './forum/components/candidat-form/formation/formation.component';
+import { NativeScriptUIAutoCompleteTextViewModule } from "nativescript-ui-autocomplete/angular";
 
 
 @NgModule({
@@ -18,11 +20,13 @@ import { HomeForumComponent } from "./forum/components/HomeForumComponent/home-f
         AppRoutingModule,
 		NativeScriptFormsModule,
 		NativeScriptUISideDrawerModule,
-		NativeScriptUIListViewModule
+        NativeScriptUIListViewModule,
+        NativeScriptUIAutoCompleteTextViewModule
     ],
     declarations: [
         AppComponent,
         HomeForumComponent,
+        FormationComponent,
     ],
     schemas: [
         NO_ERRORS_SCHEMA

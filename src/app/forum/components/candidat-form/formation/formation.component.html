@@ -1,0 +1,32 @@
+<ActionBar title="Formation">
+    <NavigationButton text="Go Back" ios.systemIcon="1" ios.position="left" android.systemIcon="ic_menu_back"
+        (tap)="onNavTap()">
+    </NavigationButton>
+</ActionBar>
+<StackLayout>
+    <StackLayout padding="5">
+        <Label text="Selectionnez la formation:"></Label>
+        <RadAutoCompleteTextView [items]="diplomaAvailable" suggestMode="Suggest" displayMode="Plain"
+            (textChanged)="onTextChanged($event)">
+            <SuggestionView tkAutoCompleteSuggestionView>
+                <ng-template tkSuggestionItemTemplate let-item="item">
+                    <StackLayout orientation="vertical" padding="10">
+                        <Label [text]="item.text"></Label>
+                    </StackLayout>
+                </ng-template>
+            </SuggestionView>
+        </RadAutoCompleteTextView>
+        <Label text="année d'obtention: "></Label>
+        <TextField [(ngModel)]="currentYear" maxLength="4" keyboardType="datetime" class="input input-border"></TextField>
+        <button text="Ajouter la formation" (tap)="addDiploma()"></button>
+    </StackLayout>
+    <StackLayout class="hr-light">
+    </StackLayout>
+        <ListView class="list-group" [items]="candidatDiplomas" (itemTap)="deleteDiploma($event)">
+            <ng-template let-diploma="item">
+                <FlexboxLayout flexDirection="row" class="list-group-item">
+                    <Label [text]="diploma.name + ' ' + diploma.yearOfResult"></Label>
+                </FlexboxLayout>
+            </ng-template>
+        </ListView>
+</StackLayout>
