@@ -17,8 +17,6 @@ export class CandidatesComponent implements OnInit {
   filterCandidates: Array<Candidate>;
   candidates: Array<Candidate>;
 
-//  filter: string = "" ; 
-
   constructor(private candidateService: CandidateService) { }
 
   ngOnInit() {
@@ -32,21 +30,6 @@ export class CandidatesComponent implements OnInit {
   public onItemTap(args) {
     console.log("tap");
   }
-
-  // public onTextChanged(args) {
-  //   let searchBar = <SearchBar>args.object;
-  //   let searchValue = searchBar.text.toLowerCase();
-  //   console.log(searchValue);
-  //   this.candidateService.getCandidateByName(searchValue);
-  //   // this.candidates = this.candidateService.getCandidateByName(searchValue);
-  // }
-  
-  // public onSubmit(args) {
-  //   let searchBar = <SearchBar>args.object;
-  //   let searchValue = searchBar.text.toLowerCase();
-
-  //   // this.candidates = this.candidateService.getCandidateByName(searchValue);
-  // }
 
   clearFocus() {
     if (isIOS) {
