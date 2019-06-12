@@ -20,8 +20,6 @@
     </ActionBar.titleView>
 </ActionBar>
 <StackLayout orientation="vertical">
-    <!-- <SearchBar hint="Rechercher un candidat" [text]="searchPhrase" (textChange)="onTextChanged($event)" (submit)="onSubmit($event)" 
-    color="white" textFieldBackgroundColor="darkgray" textFieldHintColor="lightgray"></SearchBar> -->
     <Label marginTop="60px" marginBottom="20px" marginLeft="20px" color="#0085c7" text="CANDIDATS" class="title"></Label>
     <StackLayout marginBottom="40px" height="4px" backgroundColor="#0085c7"></StackLayout>
     <ScrollView backgroundColor="white">
@@ -34,18 +32,5 @@
                 </StackLayout>
         </StackLayout>
     </ScrollView>
-
-    <!-- <ListView width="100%" [items]="candidates" (itemTap)="onItemTap($event)">
-        <ng-template let-dataitem="item" let-i="index" let-odd="odd" let-even="even">
-            <ScrollView backgroundColor="white">
-                <StackLayout marginLeft="2%" marginRight="2%" marBottom="2%" orientation="vertical" backgroundColor="lightgray">
-                        <Label color="blue" class="test" [text]="dataitem['forum avis']"></Label>
-                         <Label color="blue" class="textColor" [text]="dataitem.note" col="1" row='0'></Label>
-                        <Label color="blue" class="textColor" [text]="dataitem.diploma" ></Label>
-                        <Label color="blue" class="textColor" [text]="dataitem.contract" ></Label>
-                    </StackLayout>
-            </ScrollView>
-        </ng-template>
-    </ListView> -->
 </StackLayout>
 
