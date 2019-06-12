@@ -29,6 +29,10 @@ export class ForumComponent implements OnInit {
 	}
 
 
+	onTap(){
+		
+	}
+
 	onSwipe(args: SwipeGestureEventData) {
 		this.direction = args.direction;
 

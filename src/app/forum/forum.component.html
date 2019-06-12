@@ -1,5 +1,5 @@
-<ScrollView backgroundColor="rgba(0,0,0,0)" class="test">
-    <StackLayout orientation="horizontal" class="form">
+<ScrollView backgroundColor="rgba(0, 0, 0, 0)" class="test" (onTap)="onTap()">
+    <AbsoluteLayout  orientation="horizontal" class="form" verticalAlignment="center" horizontalAlignment="center">
         <FlexboxLayout flexDirection="column" class="page">
             <Label text="Creation d'un nouveau forum" class="titre"></Label>
 
@@ -18,5 +18,5 @@
 
             <Button class="btn btn-outline btn-rounded-lg" text="Valider" (onTap)="onClose()"> </Button>
         </FlexboxLayout>
-    </StackLayout>
+    </AbsoluteLayout >
 </ScrollView>

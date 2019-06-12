@@ -19,13 +19,11 @@
     font-size: 18px;
     color: darkblue;
     text-decoration: underline;
-    padding-left: 45%;
 }
 
 .forumName {
     font-size: 16px;
     color: darkblue;
-    padding-left: 40%;
 }
 
 .textName {
@@ -34,35 +32,30 @@
     padding: 5;
     border-bottom-width: 0.5;
     border-color:blue;
-    padding-left: 40%;
 }
 
 .placeForum {
     font-size: 16px;
     color: darkblue;
-    padding-left: 40%;
 }
 
 .textPlace {
     padding: 5;
     border-bottom-width: 0.5;
     border-color:blue;
-    padding-left: 40%;
 }
 
 .dateForum {
     font-size: 16px;
     color: darkblue;
-    padding-left: 75%;
 }
 
 .input-field{
-    padding-left: 50%;
     z-index: 5;
     border-top: 1px solid black;
 }
 
 .picker {
-    padding-right: 90%;
     vertical-align: center;
 }
+
