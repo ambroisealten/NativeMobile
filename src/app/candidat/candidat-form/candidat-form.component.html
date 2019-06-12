@@ -4,50 +4,56 @@
     </NavigationButton>
 </ActionBar>
 <AbsoluteLayout>
-    <SearchBar hint="Search hint" [text]="searchPhrase" (textChange)="onTextChanged($event)" (submit)="onSubmit($event)"
+    <SearchBar hint="Mobilité" [text]="searchPhrase" [(ngModel)]="newMobility" (textChange)="canAddNewMobility()" (submit)="canAddNewMobility()"
         left="20" color="black" textFieldBackgroundColor="white" textFieldHintColor="blue" class="searchBar">
     </SearchBar>
-    <Label left="30" top="120" text="Dans un rayon de : "></Label>
-    <TextField left="150" top="100" hint="Rayon" keyboardType="number" width="75" height="50" textAlignment="center">
+    <Label left="30" top="80" text="Dans un rayon de : "></Label>
+    <TextField left="150" top="60" hint="Rayon" [(ngModel)]="entryUnit" (textChange)="canAddNewMobility()" (submit)="canAddNewMobility()" keyboardType="number" width="75" height="50" textAlignment="center">
     </TextField>
-    <ListPicker left="250" top="50" [items]="units" selectedIndex="0" height="150"
+    <ListPicker left="250" top="10" [items]="units" selectedIndex="0" height="150"
         (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker>
-    <ScrollView left="20" top="200" id="allMobilities" height="100" width="300">
+    <Label left="120" top="150" text="Nouvelle mobilité : ">
+    </Label>
+    <Label left="120" top="170" text="{{newMobility}} - {{entryUnit}} {{selectedUnit}}"></Label>
+    <Button left="120" top="185" className="mobiBtn" text="Ajouter" height="50" isEnabled="{{canAddMobility}}" (tap)="addnewMobility()"></Button>
+    <ScrollView left="20" top="240" id="allMobilities" height="100" width="300">
         <StackLayout>
-            <Label text="mobilité random ici : 25 kms"></Label>
-            <Label text="mobilité random ici : 25 kms"></Label>
-            <Label text="mobilité random ici : 25 kms"></Label>
-            <Label text="mobilité random ici : 25 kms"></Label>
-            <Label text="mobilité random ici : 25 kms"></Label>
-            <Label text="mobilité random ici : 25 kms"></Label>
-            <Label text="mobilité random ici : 25 kms"></Label>
-            <Label text="mobilité random ici : 25 kms"></Label>
-            <Label text="mobilité random ici : 25 kms"></Label>
-            <Label text="mobilité random ici : 25 kms"></Label>
-            <Label text="mobilité random ici : 25 kms"></Label>
-            <Label text="mobilité random ici : 25 kms"></Label>
-            <Label text="mobilité random ici : 25 kms"></Label>
+            <ListView [items]="items" height="100" width="300">
+                <ng-template let-item="item">
+                    <Label [text]="item.name"></Label>
+                </ng-template>
+            </ListView>
         </StackLayout>
     </ScrollView>
-    <Button left="20" top="300" text="Mobilité France" className="mobiBtn" width="150"></Button>
-    <Button left="200" top="300" text="Mobilité France sauf IDF" className="mobiBtn" width="150"></Button>
-    <Label left="110" top="350" text="Mobilité internationale ?"></Label>
-    <Label left="120" top="385" text="Non"></Label>
-    <Switch left="150" top="370" id="international" width="50" height="50" checked="{{isOkForInternational}}"></Switch>
-    <Label left="203" top="385" text="Oui"></Label>
+    <Button left="20" top="340" text="Mobilité France" (tap)="addFranceMobility()" className="mobiBtn" width="150"></Button>
+    <Button left="200" top="340" text="Mobilité France sauf IDF" (tap)="addWithoutIDFMobility()" className="mobiBtn" width="150"></Button>
+    <Label left="110" top="390" text="Mobilité internationale ?"></Label>
+    <Label left="120" top="425" text="Non"></Label>
+    <Switch left="150" top="410" id="international" width="50" height="50" checked="{{isOkForInternational}}"></Switch>
+    <Label left="203" top="425" text="Oui"></Label>
 </AbsoluteLayout>
 <GridLayout height="60" verticalAlignment="bottom">
     <GridLayout columns="*, *, *, *, *" height="60" backgroundColor="#E6E6E9">
         <GridLayout #tabHighlight col="0" backgroundColor="#043962"></GridLayout>
         <GridLayout rows="40, 20" col="0" (tap)="selectTab(0)">
-            <Image row="0" #image1 src="~/app/assets/mobility.png" height="23" width="23"></Image>
-            <Label row="1" className="fontTest" text="Test" horizontalAlignment="center"></Label>
+            <Image row="0" #image1 src="~/app/assets/mobility.png" height="30" width="30"></Image>
+            <Label row="1" className="fontTab tabCurrent" text="Mobilité" horizontalAlignment="center"></Label>
         </GridLayout>
-        <GridLayout col="1" (tap)="selectTab(1)">
-            <Image #image2 src="~/app/assets/competences.png" height="25" width="25"></Image>
+        <GridLayout rows="40, 20" col="1" (tap)="selectTab(1)">
+            <Image row="0" #image2 src="~/app/assets/contrat.png" height="30" width="30"></Image>
+            <Label row="1" className="fontTab" text="Contrat" horizontalAlignment="center"></Label>
         </GridLayout>
-        <GridLayout col="2" (tap)="selectTab(2)">
-            <Image #image3 src="~/app/assets/complement.png" height="25" width="25"></Image>
+        <GridLayout rows="40, 20" col="2" (tap)="selectTab(2)">
+            <Image row="0" #image3 src="~/app/assets/graduation.png" height="30" width="30"></Image>
+            <Label row="1" className="fontTab" text="Formation" horizontalAlignment="center"></Label>
+        </GridLayout>
+        <GridLayout rows="40, 20" col="3" (tap)="selectTab(3)">
+            <Image row="0" #image4 src="~/app/assets/competences.png" height="30" width="30"></Image>
+            <Label row="1" className="fontTab" text="Compétences" horizontalAlignment="center"></Label>
+        </GridLayout>
+        <GridLayout rows="40, 20" col="4" (tap)="selectTab(4)">
+            <Image row="0" #image5 src="~/app/assets/complement.png" height="30" width="30"></Image>
+            <Label row="1" className="fontTab" text="Complément" horizontalAlignment="center"></Label>
         </GridLayout>
     </GridLayout>
 

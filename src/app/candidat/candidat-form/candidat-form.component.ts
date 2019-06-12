@@ -14,35 +14,55 @@ import * as dialogs from "tns-core-modules/ui/dialogs";
   moduleId: module.id,
 })
 export class CandidatFormComponent implements OnInit {
+  items: Array<any> = [];
+  allUsedMobilities: Array<string> = [];
+  newMobility: string;
+
+  canAddMobility: boolean = false;
+
+  entryUnit: number;
+  mobilityFrUsed: boolean = false;
+  mobilityIDFUsed: boolean = false;
   units: string[] = ["kms", "mins", "heures"];
   selectedUnit: string;
   isOkForInternational: boolean = true;
   searchPhrase: string;
 
-  @ViewChild('image1') image1: ElementRef;
-	@ViewChild('image2') image2: ElementRef;
-	@ViewChild('image3') image3: ElementRef;
+  @ViewChild('image1',{static:false}) image1: ElementRef;
+ 
 
   constructor(private routerExtensions: RouterExtensions,
     private router: Router) {
+  }
 
+  entryUnitChanged(event) {
+    this.entryUnit = event.value;
+    if(event.value == "") this.entryUnit = undefined;
+    this.canAddNewMobility();
   }
 
   onSubmit(args) {
     let searchBar = <SearchBar>args.object;
-    console.log("You are searching for " + searchBar.text);
+    this.newMobility = searchBar.text;
+    this.canAddNewMobility();
   }
 
-  selectedIndexChanged(event){
+  onUnitSubmit(event){
+    console.log(event.value);
+  }
+
+  selectedIndexChanged(event) {
     this.selectedUnit = this.units[event.value];
+    this.canAddNewMobility();
   }
 
   onTextChanged(args) {
     let searchBar = <SearchBar>args.object;
-    console.log("SearchBar text changed! New value: " + searchBar.text);
+    this.newMobility = searchBar.text;
+    this.canAddNewMobility();
   }
 
-  ngOnInit() {
+  ngOnInit() { 
     this.image1.nativeElement.style = "tint-color : white";
     if (!isAndroid) {
       return;
@@ -70,5 +90,51 @@ export class CandidatFormComponent implements OnInit {
     console.log(index);
   }
 
+  canAddNewMobility() {
+    this.canAddMobility = !this.allUsedMobilities.includes(this.newMobility) && this.newMobility != "" && this.newMobility != undefined && this.entryUnit != undefined && this.selectedUnit != undefined;
+    return this.canAddMobility;
+  }
+
+  addnewMobility() {
+    if (this.canAddNewMobility()) {
+      this.items.push({ name: this.newMobility + ", dans un rayon de " + this.entryUnit + " " + this.selectedUnit });
+      this.allUsedMobilities.push(this.newMobility);
+    }
+    this.resetSettings();
+    this.canAddNewMobility();
+  }
+
+  addFranceMobility() {
+    this.newMobility = "France";
+    this.entryUnit = 0;
+
+    console.log("Mobilité France");
+    if (this.canAddNewMobility() && !this.mobilityFrUsed) {
+      this.items.push({ name: "Mobilité France" });
+      this.allUsedMobilities.push(this.newMobility);
+      this.mobilityFrUsed = true;
+    }
+    this.resetSettings();
+    this.canAddNewMobility();
+  }
+
+  resetSettings() {
+    this.newMobility = "";
+    this.entryUnit = undefined;
+  }
+
+  addWithoutIDFMobility() {
+    this.newMobility = "France";
+    this.entryUnit = 0;
+    console.log("Mobilité sans IDF");
+    if (this.canAddNewMobility() && !this.mobilityIDFUsed) {
+      this.newMobility = "France hors IDF";
+      this.items.push({ name: "Mobilité France sauf IDF" });
+      this.allUsedMobilities.push(this.newMobility);
+      this.mobilityIDFUsed = true;
+    }
+    this.resetSettings();
+    this.canAddNewMobility();
+  }
 
 }

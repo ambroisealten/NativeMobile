@@ -25,11 +25,13 @@ Switch#international[checked=true]{
     background-color: rgba(0, 255, 0, 0.5);
 }
 
-.mobiBtn{
+
+
+.mobiBtn, .fontTab{
     font-size: 10;
 }
 
-.fontTest{
+
+.tabCurrent{
     color: white;
-    font-size: 12;
 }
