@@ -8,10 +8,10 @@ import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/l
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
 import { HomeForumComponent } from "./forum/components/HomeForumComponent/home-forum.component";
 
-import { CandidatesComponent } from "./candidate/candidates.component";
-import { CandidateDetailComponent } from "./candidate/candidate-detail.component";
+import { CandidatesComponent } from "./candidate/components/candidates.component";
+import { CandidateDetailComponent } from "./candidate/components/candidate-detail.component";
 
-import { CandidateService } from "./candidate/candidate.service";
+import { CandidateService } from "./candidate/components/candidate.service";
 
 
 @NgModule({

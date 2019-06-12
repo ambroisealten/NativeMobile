@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 
-import { Candidate } from "../shared/candidate/candidate.model";
+import { Candidate } from "../models/candidate";
 
 @Injectable({
     providedIn: "root"
@@ -40,10 +40,6 @@ export class CandidateService {
     }
 
     getCandidateByName(name: string): Array<Candidate> {
-    // getCandidateByName(name: string) {
-        console.log(name);
-        console.log(this.candidates.filter((candidate) => candidate.name.toLowerCase()));
-        // console.log(this.candidates.filter((candidate) => candidate.name.toLowerCase() === name)[0]);
         return this.candidates.filter((candidate) => candidate.name.toLowerCase());
     }
 }
