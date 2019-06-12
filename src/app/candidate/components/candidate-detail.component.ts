@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
-import { Candidate } from "../shared/candidate/candidate.model";
+import { Candidate } from "../models/candidate";
 import { CandidateService } from "./candidate.service";
 
 @Component({
@@ -20,6 +20,6 @@ export class CandidateDetailComponent implements OnInit {
 
   ngOnInit(): void {
       const id = +this.route.snapshot.params.id;
-      this.candidate = this.candidateService.getCandidate(id);
+      this.candidate = this.candidateService.getCandidateById(id);
   }
 }

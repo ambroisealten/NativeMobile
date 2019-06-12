@@ -13,24 +13,26 @@
                         text="2019"></Label>
                 </StackLayout>
             </StackLayout>
+            <StackLayout orientation="horizontal">
+                <TextField width="90%" hint="Recherche candidat" id="searchCandidate" (blur)="$event.object.dismissSoftInput()" (returnPress)="loseFocus($event)" [(ngModel)]="filter" (ngModelChange)='filter=$event' (textChange)="applySearch($event)"></TextField>
+            </StackLayout>
         </StackLayout>
     </ActionBar.titleView>
 </ActionBar>
 <StackLayout orientation="vertical">
     <!-- <SearchBar hint="Rechercher un candidat" [text]="searchPhrase" (textChange)="onTextChanged($event)" (submit)="onSubmit($event)" 
     color="white" textFieldBackgroundColor="darkgray" textFieldHintColor="lightgray"></SearchBar> -->
-    <Label marginTop="60px" marginBottom="20px" color="#0085c7" text="CANDIDATS" class="title"></Label>
+    <Label marginTop="60px" marginBottom="20px" marginLeft="20px" color="#0085c7" text="CANDIDATS" class="title"></Label>
     <StackLayout marginBottom="40px" height="4px" backgroundColor="#0085c7"></StackLayout>
     <ScrollView backgroundColor="white">
         <StackLayout orientation="vertical">
                 <StackLayout marginLeft="2%" marginRight="2%" marginBottom="15px" orientation="vertical" backgroundColor="#E6E6E9" 
-                            *ngFor="let dataitem of candidates" class="list-group" (itemTap)="onItemTap($event)">
+                            *ngFor="let dataitem of filterCandidates" class="list-group" (itemTap)="onItemTap($event)">
                             <Label marginTop="15px" color="#0085c7" [text]="dataitem['forum avis']"></Label>
                             <Label color="#0085c7" [text]="dataitem.diploma" ></Label>
                             <Label marginBottom="40px" color="#0085c7" [text]="dataitem.contract" ></Label> 
                 </StackLayout>
         </StackLayout>
-
     </ScrollView>
 
     <!-- <ListView width="100%" [items]="candidates" (itemTap)="onItemTap($event)">
