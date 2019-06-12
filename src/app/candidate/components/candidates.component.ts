@@ -46,9 +46,15 @@ export class CandidatesComponent implements OnInit {
     this.filterCandidates = [];
     if (filter != "") {
       this.candidates.forEach(candidates => {
-          if(candidates.name.toLowerCase().includes(filter.toLowerCase())){
-              this.filterCandidates.push(candidates);
-          }
+        if(candidates.name.toLowerCase().includes(filter.toLowerCase())){
+          this.filterCandidates.push(candidates);
+        }
+        else if(candidates.note.toLowerCase().includes(filter.toLowerCase())){
+          this.filterCandidates.push(candidates);
+        }
+        else if(candidates.contract.toLowerCase().includes(filter.toLowerCase())){
+          this.filterCandidates.push(candidates);
+        }
       })
     }
     else
