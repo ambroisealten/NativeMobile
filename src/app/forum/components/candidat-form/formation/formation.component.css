@@ -23,3 +23,12 @@ ActionItem {
 Label{
     margin-left: 3%;
 }
+
+.mobiBtn, .fontTab{
+    font-size: 10;
+}
+
+
+.tabCurrent{
+    color: white;
+}

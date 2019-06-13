@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { RadAutoCompleteTextView, TokenModel } from 'nativescript-ui-autocomplete';
 import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
@@ -14,6 +14,8 @@ import { DiplomaService } from '~/app/forum/services/diploma.service';
   moduleId: module.id,
 })
 export class FormationComponent implements OnInit {
+ 
+  @ViewChild('image3', { static: false }) image3: ElementRef;
 
   diplomaAvailable: ObservableArray<TokenModel>;
 
@@ -29,6 +31,7 @@ export class FormationComponent implements OnInit {
 
   ngOnInit() {
     this.diplomaAvailable = this.diplomaService.fetchDiplomas();
+    this.image3.nativeElement.style = "tint-color : white";
   }
 
   onNavTap() {
@@ -52,6 +55,19 @@ export class FormationComponent implements OnInit {
 
   deleteDiploma($event){
     this.candidatFormService.candidat.diplomas.splice($event.index, 1);
+  }
+
+  selectTab(index: number) {
+    switch(index){
+      case 0:
+        this.routerExtensions.navigate(['mobility']);
+        break;
+      case 2:
+        this.routerExtensions.navigate(['formation']);
+        break;
+      default:
+        break;
+    }
   }
 
 }
