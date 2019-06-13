@@ -1,22 +1,27 @@
-<ScrollView backgroundColor="rgba(0, 0, 0, 0)" class="test" (onTap)="onTap()">
-    <AbsoluteLayout  orientation="horizontal" class="form" verticalAlignment="center" horizontalAlignment="center">
+
+    <ScrollView backgroundColor="rgba(0, 0, 0, 0)" class="test" (swipe)="onSwipe()" (onTap)="onTap()">
+        
+    <AbsoluteLayout  backgroundColor="transparent" orientation="horizontal" class="form" verticalAlignment="center" horizontalAlignment="center">
+        
         <FlexboxLayout flexDirection="column" class="page">
+            
             <Label text="Creation d'un nouveau forum" class="titre"></Label>
 
             <StackLayout class="input-field" >
                 <Label text="Nom du forum :" class="forumName"></Label>
-                <TextField [(ngModel)]="forumName" hint="Nom du forum" class="input input-rounded m-t-5"></TextField>
+                <TextField [(ngModel)]="forumName" hint="Nom du forum" class="input input-rounded m-t-10"></TextField>
             </StackLayout>
             <StackLayout class="input-field">
                 <Label text="Lieu du forum :" class="placeForum"></Label>
-                <TextField [(ngModel)]="forumPlace" hint="Ville/Lieu du forum" class="input input-rounded m-t-5"></TextField>
+                <TextField [(ngModel)]="forumPlace" hint="Ville/Lieu du forum" class="input input-rounded m-t-10"></TextField>
             </StackLayout>
             <ng-container class="input-field">
                 <Label text="Date du forum :" class="dateForum"></Label>
                 <DatePicker class="picker" [(ngModel)]="forumDate" day="7" month="6" year="2019" verticalAlignment="center" horizontalAlignment="center"></DatePicker>>
             </ng-container>
 
-            <Button class="btn btn-outline btn-rounded-lg" text="Valider" (onTap)="onClose()"> </Button>
+            <Button class="btn btn-primary btn-active" text="Valider" (onTap)="onClose()"> </Button>
+            <Button class="btn btn-primary btn-outline " text="retour" (onTap)="Back()" ></Button>
         </FlexboxLayout>
     </AbsoluteLayout >
 </ScrollView>

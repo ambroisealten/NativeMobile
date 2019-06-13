@@ -29,25 +29,32 @@ export class ForumComponent implements OnInit {
 	}
 
 
-	onTap(){
-		
+	onTap($event){
+		console.log("ok");
 	}
 
 	onSwipe(args: SwipeGestureEventData) {
+		console.log(args);
+		/*
 		this.direction = args.direction;
+		this._params.closeCallback();
 
 		switch (this.direction) {
 			case 1:
 				this.routerExtensions.back();
 				break;
 			case 2:
-				this.routerExtensions.navigate(['recapForum']);
+				console.log("d'acccord")
 				break;
-		}
+		}*/
 	}
 	
 	goBack() {
 		this.routerExtensions.back();
+	}
+
+	Back() {
+		this._params.closeCallback("retour");
 	}
 
 	onClose(): void {

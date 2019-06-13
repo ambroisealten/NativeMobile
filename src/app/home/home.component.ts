@@ -3,6 +3,8 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
 import { ForumComponent } from "../forum/forum.component";
 
+import { ModalStack, overrideModalViewMethod } from "nativescript-windowed-modal"
+
 @Component({
     selector: "Home",
     moduleId: module.id,
@@ -19,6 +21,7 @@ export class HomeComponent implements OnInit {
     }
 
     onTap(): void {
+
         const options: ModalDialogOptions = {
             viewContainerRef: this._vcRef,
             context: {},
@@ -29,5 +32,9 @@ export class HomeComponent implements OnInit {
             .then((result: string) => {
                 console.log(result);
             });
+    }
+
+    ok(){
+        console.log("non");
     }
 }
