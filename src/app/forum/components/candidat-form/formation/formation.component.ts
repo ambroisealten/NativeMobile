@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
-import { TokenModel, RadAutoCompleteTextView } from 'nativescript-ui-autocomplete';
+import { RadAutoCompleteTextView, TokenModel } from 'nativescript-ui-autocomplete';
 import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 import { Diploma } from '~/app/forum/models/Diploma';
 import { CandidatFormService } from '~/app/forum/services/candidatForm.service';
+import { DiplomaService } from '~/app/forum/services/diploma.service';
 
 
 @Component({
@@ -14,31 +15,7 @@ import { CandidatFormService } from '~/app/forum/services/candidatForm.service';
 })
 export class FormationComponent implements OnInit {
 
-  diplomaAvailable: ObservableArray<TokenModel> = new ObservableArray<TokenModel>([
-    new TokenModel("Epitech", undefined),
-    new TokenModel("Ep", undefined),
-    new TokenModel("Ensise", undefined),
-    new TokenModel("Albataga", undefined),
-    new TokenModel("Telecom", undefined),
-    new TokenModel("Ensisa", undefined),
-    new TokenModel("Albb", undefined),
-    new TokenModel("Albaa", undefined),
-    new TokenModel("Elbow", undefined),
-    new TokenModel("Backar", undefined),
-    new TokenModel("Cacahuete", undefined),
-    new TokenModel("Daddy", undefined),
-    new TokenModel("Frite", undefined),
-    new TokenModel("Hijack", undefined),
-    new TokenModel("Inouit", undefined),
-    new TokenModel("Jackass", undefined),
-    new TokenModel("Kartoffel", undefined),
-    new TokenModel("Linguiste", undefined),
-    new TokenModel("Mamamia", undefined),
-    new TokenModel("Zaza", undefined),
-    new TokenModel("Sachet", undefined),
-    new TokenModel("Yo-yo", undefined),
-    new TokenModel("xoxo", undefined),
-  ]);
+  diplomaAvailable: ObservableArray<TokenModel>;
 
   currentYear: number = new Date().getFullYear();
   diplomaName: string = "";
@@ -46,11 +23,12 @@ export class FormationComponent implements OnInit {
   candidatFormService: CandidatFormService;
 
 
-  constructor(private routerExtensions: RouterExtensions) { 
+  constructor(private routerExtensions: RouterExtensions,private diplomaService: DiplomaService) { 
     this.candidatFormService = CandidatFormService.getInstance("{{Nom a injecter}}","{{Année à injecter}}");
   }
 
   ngOnInit() {
+    this.diplomaAvailable = this.diplomaService.fetchDiplomas();
   }
 
   onNavTap() {

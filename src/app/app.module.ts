@@ -10,6 +10,7 @@ import { HomeForumComponent } from "./forum/components/HomeForumComponent/home-f
 import { FormationComponent } from './forum/components/candidat-form/formation/formation.component';
 import { NativeScriptUIAutoCompleteTextViewModule } from "nativescript-ui-autocomplete/angular";
 import { CandidatFormService } from "./forum/services/candidatForm.service";
+import { DiplomaService } from "./forum/services/diploma.service";
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { CandidatFormService } from "./forum/services/candidatForm.service";
         FormationComponent,
     ],
     providers : [
+        DiplomaService,
         CandidatFormService
     ],
     schemas: [
