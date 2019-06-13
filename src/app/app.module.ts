@@ -13,6 +13,7 @@ import { ForumComponent } from "./forum/forum.component";
 import { CandidatFormService } from "./forum/services/candidatForm.service";
 import { DiplomaService } from "./forum/services/diploma.service";
 import { HomeComponent } from "./home/home.component";
+import { MobilityService } from "./forum/services/mobility.service";
 
 
 
@@ -38,7 +39,8 @@ import { HomeComponent } from "./home/home.component";
     ],
     providers : [
         DiplomaService,
-        CandidatFormService
+        CandidatFormService,
+        MobilityService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

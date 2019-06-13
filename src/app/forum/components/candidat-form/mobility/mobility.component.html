@@ -1,34 +1,72 @@
-<ActionBar title="Informations">
+<ActionBar title="Mobilité" color="blue" backgroundColor="#f2f2f2">
     <NavigationButton text="Go Back" ios.systemIcon="1" ios.position="left" android.systemIcon="ic_menu_back"
         (tap)="onNavTap()">
     </NavigationButton>
+    <ActionBar.titleView>
+        <StackLayout paddingTop="5%" paddingBottom="5%" orientation="vertical">
+            <StackLayout orientation="horizontal">
+                <Image marginLeft="3%" width="12%" height="100%" src="~/assets/image/logo-alten-black.png">
+                </Image>
+                <StackLayout paddingTop="5%" orientation="vertical">
+                    <Label marginLeft="10%" fontWeight="bold" fontSize="17vh" color="black"
+                        [text]="candidatFormService.forumName"></Label>
+                    <Label marginLeft="10%" fontWeight="bold" paddingTop="5%" fontSize="17vh" color="black"
+                        [text]="candidatFormService.forumYear"></Label>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ActionBar.titleView>
 </ActionBar>
-<AbsoluteLayout>
-    <SearchBar hint="Mobilité" [text]="searchPhrase" [(ngModel)]="newMobility"
-        left="20" color="black" textFieldBackgroundColor="white" textFieldHintColor="blue" class="searchBar">
-    </SearchBar>
-    <Label left="30" top="80" text="Dans un rayon de : "></Label>
-    <TextField left="150" top="60" hint="Rayon" [(ngModel)]="entryUnit" keyboardType="number" width="75" height="50" textAlignment="center">
-    </TextField>
-    <ListPicker left="250" top="10" [items]="units" selectedIndex="0" height="150"
-        (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker>
-    <Button left="120" top="150" className="mobiBtn" text="Ajouter" height="50" [isEnabled]="newMobility != '' && (entryUnit != undefined && entryUnit != '')" (tap)="addnewMobility()"></Button>
-    <ScrollView left="20" top="240" id="allMobilities" height="100" width="300">
+<StackLayout>
+    <Label text="Localisation :"></Label>
+    <RadAutoCompleteTextView [items]="mobilityAvailable" suggestMode="Suggest" displayMode="Plain"
+        (textChanged)="onTextChanged($event)">
+        <SuggestionView tkAutoCompleteSuggestionView>
+            <ng-template tkSuggestionItemTemplate let-item="item">
+                <StackLayout orientation="vertical" padding="10">
+                    <Label [text]="item.text"></Label>
+                </StackLayout>
+            </ng-template>
+        </SuggestionView>
+    </RadAutoCompleteTextView>
+    <WrapLayout>
+        <Label paddingTop="50" text="Dans un rayon de : "></Label>
+        <TextField marginLeft="25" hint="Rayon" [(ngModel)]="entryUnit" keyboardType="number" width="75" height="50"
+            textAlignment="center">
+        </TextField>
+        <ListPicker marginLeft="25" [items]="units" selectedIndex="0" height="100"
+            (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker>
+    </WrapLayout>
+    <Button className="mobiBtn" text="Ajouter" height="50"
+        [isEnabled]="newMobility != '' && (entryUnit != undefined && entryUnit != '')"
+        (tap)="addnewMobility()"></Button>
+    <ScrollView left="20" top="200" id="allMobilities" height="100" width="300">
         <StackLayout>
-            <ListView [items]="items" height="100" width="300" (itemTap)="deleteMobility($event)">
+            <ListView [items]="candidatFormService.candidat.mobilities" height="100" width="300"
+                (itemTap)="deleteMobility($event)">
                 <ng-template let-item="item">
-                    <Label [text]="item.name"></Label>
+                    <Label [text]="item.representation"></Label>
                 </ng-template>
             </ListView>
         </StackLayout>
     </ScrollView>
-    <Button left="20" top="340" text="Mobilité France" (tap)="addFranceMobility()" className="mobiBtn" width="150"></Button>
-    <Button left="200" top="340" text="Mobilité France sauf IDF" (tap)="addWithoutIDFMobility()" className="mobiBtn" width="150"></Button>
-    <Label left="110" top="390" text="Mobilité internationale ?"></Label>
-    <Label left="120" top="425" text="Non"></Label>
-    <Switch left="150" top="410" id="international" width="50" height="50" (checkedChange)="internationalChanged($event)" checked="{{isOkForInternational}}"></Switch>
-    <Label left="203" top="425" text="Oui"></Label>
-</AbsoluteLayout>
+    <DockLayout>
+        <Button marginLeft="10" dock="left" text="Mobilité France" (tap)="addFranceMobility()" className="mobiBtn"
+            width="150"></Button>
+        <Button dock="left" marginLeft="10" text="Mobilité France sauf IDF" (tap)="addFranceWithoutIDFMobility()"
+            className="mobiBtn" width="150"></Button>
+    </DockLayout>
+
+    <GridLayout columns="150,25,50,50,50" rows="50,auto,*">
+        <Label paddingTop="15" row="0" col="0" text="Mobilité internationale ?"></Label>
+        <Label paddingTop="15" row="0" col="2" text="Non"></Label>
+        <Switch row="0" col="3" id="international" height="20"
+            (checkedChange)="internationalChanged($event)" checked="{{isOkForInternational}}"></Switch>
+        <Label paddingTop="15" row="0" col="4" text="Oui"></Label>
+    </GridLayout>
+
+
+</StackLayout>
 <GridLayout height="60" verticalAlignment="bottom">
     <GridLayout columns="*, *, *, *, *" height="60" backgroundColor="#E6E6E9">
         <GridLayout #tabHighlight col="0" backgroundColor="#043962"></GridLayout>
