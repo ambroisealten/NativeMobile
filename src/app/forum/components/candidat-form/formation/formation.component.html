@@ -1,7 +1,20 @@
-<ActionBar title="Formation">
+<ActionBar title="Formation" color="blue" backgroundColor="#f2f2f2">
     <NavigationButton text="Go Back" ios.systemIcon="1" ios.position="left" android.systemIcon="ic_menu_back"
         (tap)="onNavTap()">
     </NavigationButton>
+    <ActionBar.titleView>
+        <StackLayout paddingTop="5%" orientation="vertical">
+            <StackLayout orientation="horizontal">
+                <Image marginLeft="3%" width="12%" height="100%" src="~/assets/image/logo-alten-black.png">
+                </Image>
+                <StackLayout paddingTop="5%" orientation="vertical">
+                    <Label marginLeft="10%" fontWeight="bold" fontSize="17vh" color="black" [text]="candidatFormService.forumName"></Label>
+                    <Label marginLeft="10%" fontWeight="bold" paddingTop="5%" fontSize="17vh" color="black"
+                        [text]="candidatFormService.forumYear"></Label>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ActionBar.titleView>
 </ActionBar>
 <StackLayout>
     <StackLayout padding="5">
@@ -23,7 +36,7 @@
     </StackLayout>
     <StackLayout class="hr-light">
     </StackLayout>
-    <ListView class="list-group" [items]="candidatDiplomas" (itemTap)="deleteDiploma($event)">
+    <ListView class="list-group" [items]="candidatFormService.candidat.diplomas" (itemTap)="deleteDiploma($event)">
         <ng-template let-diploma="item">
             <FlexboxLayout flexDirection="row" class="list-group-item">
                 <DockLayout orientation="horizontal" stretchLastChild="false" class="far cartouche border">

@@ -3,6 +3,7 @@ import { RouterExtensions } from 'nativescript-angular/router';
 import { TokenModel, RadAutoCompleteTextView } from 'nativescript-ui-autocomplete';
 import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 import { Diploma } from '~/app/forum/models/Diploma';
+import { CandidatFormService } from '~/app/forum/services/candidatForm.service';
 
 
 @Component({
@@ -41,13 +42,16 @@ export class FormationComponent implements OnInit {
 
   currentYear: number = new Date().getFullYear();
   diplomaName: string = "";
-  candidatDiplomas: Diploma[] = [];
   autocompleteView: RadAutoCompleteTextView;
+  candidatFormService: CandidatFormService;
 
 
-  constructor(private routerExtensions: RouterExtensions) { }
+  constructor(private routerExtensions: RouterExtensions) { 
+    this.candidatFormService = CandidatFormService.getInstance("{{Nom a injecter}}","{{Année à injecter}}");
+  }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
   onNavTap() {
     this.routerExtensions.backToPreviousPage();
@@ -61,7 +65,7 @@ export class FormationComponent implements OnInit {
   addDiploma() {
     if (this.diplomaName !== "") {
       let newDiploma = new Diploma(this.diplomaName, this.currentYear.toString());
-      this.candidatDiplomas.push(newDiploma);
+      this.candidatFormService.candidat.diplomas.push(newDiploma);
       this.currentYear = new Date().getFullYear();
       this.diplomaName = "";
       this.autocompleteView.resetAutoComplete();
@@ -69,7 +73,7 @@ export class FormationComponent implements OnInit {
   }
 
   deleteDiploma($event){
-    this.candidatDiplomas.splice($event.index, 1);
+    this.candidatFormService.candidat.diplomas.splice($event.index, 1);
   }
 
 }

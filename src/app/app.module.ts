@@ -9,6 +9,7 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 import { HomeForumComponent } from "./forum/components/HomeForumComponent/home-forum.component";
 import { FormationComponent } from './forum/components/candidat-form/formation/formation.component';
 import { NativeScriptUIAutoCompleteTextViewModule } from "nativescript-ui-autocomplete/angular";
+import { CandidatFormService } from "./forum/services/candidatForm.service";
 
 
 @NgModule({
@@ -27,6 +28,9 @@ import { NativeScriptUIAutoCompleteTextViewModule } from "nativescript-ui-autoco
         AppComponent,
         HomeForumComponent,
         FormationComponent,
+    ],
+    providers : [
+        CandidatFormService
     ],
     schemas: [
         NO_ERRORS_SCHEMA
