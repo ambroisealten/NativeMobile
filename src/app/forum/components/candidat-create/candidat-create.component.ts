@@ -19,7 +19,7 @@ export class CandidatCreateComponent implements OnInit {
   }
 
   onValidate(){
-    this.routerExtensions.navigate(['candidatForm']);
+    this.routerExtensions.navigate(['mobility']);
   }
 
 }

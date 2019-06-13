@@ -3,15 +3,15 @@ import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { HomeComponent } from "./home/home.component";
 import { ForumComponent } from "./forum/forum.component";
-import { CandidatCreateComponent } from "./candidat/candidat-create/candidat-create.component";
-import { CandidatFormComponent } from "./candidat/candidat-form/candidat-form.component";
+import { CandidatCreateComponent } from "./forum/components/candidat-create/candidat-create.component";
+import { MobilityComponent } from "./forum/components/candidat-form/mobility/mobility.component";
 
 const routes: Routes = [
     { path: "", redirectTo: "/home", pathMatch: "full" },
     { path: "home", component: HomeComponent },
     { path: "forum", component: ForumComponent},
     { path: "candidatCreate", component: CandidatCreateComponent},
-    { path: "candidatForm", component: CandidatFormComponent}
+    { path: "mobility", component: MobilityComponent}
 ];
 
 @NgModule({

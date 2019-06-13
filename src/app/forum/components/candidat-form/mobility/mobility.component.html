@@ -4,21 +4,18 @@
     </NavigationButton>
 </ActionBar>
 <AbsoluteLayout>
-    <SearchBar hint="Mobilité" [text]="searchPhrase" [(ngModel)]="newMobility" (textChange)="canAddNewMobility()" (submit)="canAddNewMobility()"
+    <SearchBar hint="Mobilité" [text]="searchPhrase" [(ngModel)]="newMobility"
         left="20" color="black" textFieldBackgroundColor="white" textFieldHintColor="blue" class="searchBar">
     </SearchBar>
     <Label left="30" top="80" text="Dans un rayon de : "></Label>
-    <TextField left="150" top="60" hint="Rayon" [(ngModel)]="entryUnit" (textChange)="canAddNewMobility()" (submit)="canAddNewMobility()" keyboardType="number" width="75" height="50" textAlignment="center">
+    <TextField left="150" top="60" hint="Rayon" [(ngModel)]="entryUnit" keyboardType="number" width="75" height="50" textAlignment="center">
     </TextField>
     <ListPicker left="250" top="10" [items]="units" selectedIndex="0" height="150"
         (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker>
-    <Label left="120" top="150" text="Nouvelle mobilité : ">
-    </Label>
-    <Label left="120" top="170" text="{{newMobility}} - {{entryUnit}} {{selectedUnit}}"></Label>
-    <Button left="120" top="185" className="mobiBtn" text="Ajouter" height="50" isEnabled="{{canAddMobility}}" (tap)="addnewMobility()"></Button>
+    <Button left="120" top="150" className="mobiBtn" text="Ajouter" height="50" [isEnabled]="newMobility != '' && (entryUnit != undefined && entryUnit != '')" (tap)="addnewMobility()"></Button>
     <ScrollView left="20" top="240" id="allMobilities" height="100" width="300">
         <StackLayout>
-            <ListView [items]="items" height="100" width="300">
+            <ListView [items]="items" height="100" width="300" (itemTap)="deleteMobility($event)">
                 <ng-template let-item="item">
                     <Label [text]="item.name"></Label>
                 </ng-template>
@@ -29,7 +26,7 @@
     <Button left="200" top="340" text="Mobilité France sauf IDF" (tap)="addWithoutIDFMobility()" className="mobiBtn" width="150"></Button>
     <Label left="110" top="390" text="Mobilité internationale ?"></Label>
     <Label left="120" top="425" text="Non"></Label>
-    <Switch left="150" top="410" id="international" width="50" height="50" checked="{{isOkForInternational}}"></Switch>
+    <Switch left="150" top="410" id="international" width="50" height="50" (checkedChange)="internationalChanged($event)" checked="{{isOkForInternational}}"></Switch>
     <Label left="203" top="425" text="Oui"></Label>
 </AbsoluteLayout>
 <GridLayout height="60" verticalAlignment="bottom">
