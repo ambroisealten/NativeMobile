@@ -1,0 +1,31 @@
+<ActionBar title="" color="blue" backgroundColor="#f2f2f2">
+    <ActionBar.titleView>
+        <StackLayout orientation="vertical">
+            <StackLayout orientation="horizontal">
+                <Image marginLeft="3%" width="12%" height="100%" src="~/assets/image/logo-alten-black.png">
+                </Image>
+                <StackLayout paddingTop="5%" orientation="vertical">
+                    <Label marginLeft="10%" fontWeight="bold" fontSize="17vh" color="black" text="Blabla"></Label>
+                    <Label marginLeft="10%" fontWeight="bold" marginTop="5%" fontSize="17vh" color="black"
+                        text="2019"></Label>
+                </StackLayout>
+            </StackLayout>
+            <Label marginLeft="13%" color="#1a1aff" fontSize="20px" paddingTop="5%" text="Informations complémentaires"></Label>
+        </StackLayout>
+    </ActionBar.titleView>
+</ActionBar>
+<StackLayout orientation="vertical" width="100%" height="100%">
+    <StackLayout marginLeft="15%" marginTop="15%" orientation="vertical">
+        <CheckBox class="check" #permis text="Permis de conduire" checked="false"></CheckBox>
+        <CheckBox fontSize="80px" #vehicule text="Véhicule personnel" checked="false"></CheckBox>
+    </StackLayout>
+    <StackLayout marginLeft="15%" marginTop="14%" orientation="horizontal">
+        <Label paddingTop="10px" color="black" fontSize="18px" text="Nationalité : "></Label>
+        <StackLayout marginLeft="10%" orientation="horizontal">
+            <CheckBox id="FR" (tap)="selectNationalite($event)" #FR text="FR" boxType="circle" checked="false"></CheckBox>
+            <CheckBox id="UE" (tap)="selectNationalite($event)" #UE text="UE" boxType="circle" checked="false"></CheckBox>
+            <CheckBox id="autre" (tap)="selectNationalite($event)" #autre text="Autre" boxType="circle" checked="false"></CheckBox>
+        </StackLayout>
+    </StackLayout>
+    <Button (tap)="validate()" color="#1a1aff" backgroundColor="#e2e6e9" marginTop="35%" width="55%" height="10%" text="Finaliser"></Button>
+</StackLayout>

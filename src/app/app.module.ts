@@ -7,6 +7,8 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/listview-directives";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
 import { HomeForumComponent } from "./forum/components/HomeForumComponent/home-forum.component";
+import { InformationsCompComponent } from './forum/components/informations-comp/informations-comp.component';
+import { TNSCheckBoxModule } from 'nativescript-checkbox/angular/index';
 
 
 @NgModule({
@@ -18,11 +20,13 @@ import { HomeForumComponent } from "./forum/components/HomeForumComponent/home-f
         AppRoutingModule,
 		NativeScriptFormsModule,
 		NativeScriptUISideDrawerModule,
-		NativeScriptUIListViewModule
+        NativeScriptUIListViewModule,
+        TNSCheckBoxModule
     ],
     declarations: [
         AppComponent,
         HomeForumComponent,
+        InformationsCompComponent,
     ],
     schemas: [
         NO_ERRORS_SCHEMA
