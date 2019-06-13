@@ -55,6 +55,9 @@ export class CandidatesComponent implements OnInit {
         else if(candidates.contract.toLowerCase().includes(filter.toLowerCase())){
           this.filterCandidates.push(candidates);
         }
+        else if(candidates.diploma.toLowerCase().includes(filter.toLowerCase())){
+          this.filterCandidates.push(candidates);
+        }
       })
     }
     else
