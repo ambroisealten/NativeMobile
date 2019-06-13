@@ -1,0 +1,11 @@
+<ActionBar class="action-bar">
+    <ActionItem tap="onShare"
+        ios.systemIcon="4" ios.position="right"
+        android.systemIcon="ic_menu_add" android.position="actionBar" (tap)="onTap()"></ActionItem>
+</ActionBar>
+
+<GridLayout rows="*, auto" class="page">
+    <StackLayout row="0">
+        <Button text="Liste candidat" (tap)="onRedirectCandidate()"></Button>
+    </StackLayout>
+</GridLayout>

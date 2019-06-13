@@ -1,16 +1,19 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { NativeScriptModule } from "nativescript-angular/nativescript.module";
+import { NativeScriptUIAutoCompleteTextViewModule } from "nativescript-ui-autocomplete/angular";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/listview-directives";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
-import { HomeForumComponent } from "./forum/components/HomeForumComponent/home-forum.component";
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { CandidatCreateComponent } from './forum/components/candidat-create/candidat-create.component';
 import { FormationComponent } from './forum/components/candidat-form/formation/formation.component';
-import { NativeScriptUIAutoCompleteTextViewModule } from "nativescript-ui-autocomplete/angular";
+import { MobilityComponent } from "./forum/components/candidat-form/mobility/mobility.component";
+import { ForumComponent } from "./forum/forum.component";
 import { CandidatFormService } from "./forum/services/candidatForm.service";
 import { DiplomaService } from "./forum/services/diploma.service";
+import { HomeComponent } from "./home/home.component";
+
 
 
 @NgModule({
@@ -27,8 +30,11 @@ import { DiplomaService } from "./forum/services/diploma.service";
     ],
     declarations: [
         AppComponent,
-        HomeForumComponent,
         FormationComponent,
+        HomeComponent,
+        CandidatCreateComponent,
+        ForumComponent,
+        MobilityComponent
     ],
     providers : [
         DiplomaService,
@@ -36,6 +42,9 @@ import { DiplomaService } from "./forum/services/diploma.service";
     ],
     schemas: [
         NO_ERRORS_SCHEMA
+    ],
+    entryComponents:[
+        ForumComponent
     ]
 })
 export class AppModule { }
