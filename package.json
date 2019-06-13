@@ -24,12 +24,13 @@
     "nativescript-angular": "~8.0.0",
     "nativescript-http-formdata": "^1.6.0",
     "nativescript-theme-core": "~1.0.4",
+    "nativescript-ui-autocomplete": "4.1.0",
     "nativescript-ui-listview": "^6.3.2",
     "nativescript-ui-sidedrawer": "^6.0.0",
     "reflect-metadata": "~0.1.12",
     "rxjs": "~6.5.0",
     "tns-core-modules": "~5.4.0",
-    "zone.js": "~0.8.26"
+    "zone.js": "^0.9.1"
   },
   "devDependencies": {
     "@angular/compiler-cli": "~8.0.0",

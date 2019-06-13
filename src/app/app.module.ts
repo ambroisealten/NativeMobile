@@ -6,6 +6,11 @@ import { AppComponent } from "./app.component";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/listview-directives";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
+import { HomeForumComponent } from "./forum/components/HomeForumComponent/home-forum.component";
+import { FormationComponent } from './forum/components/candidat-form/formation/formation.component';
+import { NativeScriptUIAutoCompleteTextViewModule } from "nativescript-ui-autocomplete/angular";
+import { CandidatFormService } from "./forum/services/candidatForm.service";
+import { DiplomaService } from "./forum/services/diploma.service";
 
 
 @NgModule({
@@ -17,10 +22,17 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
         AppRoutingModule,
 		NativeScriptFormsModule,
 		NativeScriptUISideDrawerModule,
-		NativeScriptUIListViewModule
+        NativeScriptUIListViewModule,
+        NativeScriptUIAutoCompleteTextViewModule
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        HomeForumComponent,
+        FormationComponent,
+    ],
+    providers : [
+        DiplomaService,
+        CandidatFormService
     ],
     schemas: [
         NO_ERRORS_SCHEMA
