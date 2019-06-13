@@ -30,7 +30,6 @@ export class ForumComponent implements OnInit {
 
 
 	onTap($event){
-		console.log("ok");
 	}
 
 	onSwipe(args: SwipeGestureEventData) {
