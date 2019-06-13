@@ -36,7 +36,7 @@ export class FormationComponent implements OnInit {
   }
 
   onTextChanged($event) {
-    this.autocompleteView = (<RadAutoCompleteTextView>$event.object)
+    this.autocompleteView = <RadAutoCompleteTextView>$event.object;
     this.diplomaName = $event.text;
   }
 
